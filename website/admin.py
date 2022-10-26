@@ -221,23 +221,23 @@ class AdminModule(WebsiteModule):
     @requires_admin
     def get_user_tags(self, user):
         body = request.json
-        user = self.db.get_public_profile_settings(body['username'].strip().lower())
-        if not user:
+        db_user = self.db.get_public_profile_settings(body['username'].strip().lower())
+        if not db_user:
             return "User doesn't have a public profile", 400
-        return {'tags': user.get('tags', [])}, 200
+        return {'tags': db_user.get('tags', [])}, 200
 
     @route('/updateUserTags', methods=['POST'])
     @requires_admin
     def update_user_tags(self, user):
         body = request.json
         db_user = self.db.get_public_profile_settings(body['username'].strip().lower())
-        if not user:
+        if not db_user:
             return "User doesn't have a public profile", 400
 
         tags = []
-        if "admin" in user.get('tags', []):
+        if "admin" in db_user.get('tags', []):
             tags.append("admin")
-        if "teacher" in user.get('tags', []):
+        if "teacher" in db_user.get('tags', []):
             tags.append("teacher")
         if body.get("certified"):
             tags.append("certified_teacher")
