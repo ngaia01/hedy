@@ -180,3 +180,24 @@ class HighlighterTestOverCol(HighlightTester):
             "KKK TTTTTTTT KK TTTTTTT",
             level=level, lang='en')
 
+
+
+    @parameterized.expand([
+        ("level3"),
+        ("level4"),
+        ("level5"),
+        ("level6"),
+        ("level7"),
+        ("level8"),
+        ("level9"),
+        ("level10"),
+        ("level11"),
+    ])
+    def test_multi_is1(self, level):
+        self.assert_highlighted_chr(
+            "var is lost, test, is, truc",
+            "TTT KK TTTTK TTTTK TTK TTTT",
+            level=level, lang="en")
+
+
+

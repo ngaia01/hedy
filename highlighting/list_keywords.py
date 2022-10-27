@@ -11,6 +11,10 @@ ask_after_equal = {
     "token": ["keyword","text","keyword"]
 }
 
+multi_is = {
+    "regex": START_WORD + get_translated_keyword("is") + END_WORD,
+    "token": ["text","keyword"]
+}
 
 
 # This variable lists all the keywords in each level, i.e. everything that should be displayed in red (of type `keyword`)
@@ -41,85 +45,75 @@ ask_after_equal = {
 #   Some additional rules that will be added to reduce over highlighting
 
 LEVELS = {
-    4 :{ # not used
-        "space_before_and_after" : ["is","at","add","to_list","remove","from","color"],
-        "no_space"               : ["comma"],
-        "space_before"           : ["print","sleep","forward","turn","random"],
-        "space_after"            : [],
-        "constant": ["black", "blue", "brown", "gray", "green", "orange", "pink", "purple", "red", "white", "yellow"],
-        "number"  : False,
-        "number_with_decimal": False,
-        "extra_rules" : [ask_after_is]
-    },
     5 :{
-        "space_before_and_after" : ["is","at","add","to_list","remove","from","in","if","else","color"],
+        "space_before_and_after" : ["at","add","to_list","remove","from","in","if","else","color"],
         "no_space"               : ["comma"],
         "space_before"           : ["print","sleep","forward","turn","random"],
         "space_after"            : [],
         "constant": ["black", "blue", "brown", "gray", "green", "orange", "pink", "purple", "red", "white", "yellow"],
         "number"  : False,
         "number_with_decimal": False,
-        "extra_rules" : [ask_after_is]
+        "extra_rules" : [ask_after_is,multi_is]
     },
     6 :{
-        "space_before_and_after" : ["is","at","add","to_list","remove","from","in","if","else","color"],
+        "space_before_and_after" : ["at","add","to_list","remove","from","in","if","else","color"],
         "no_space"               : ["comma","-","=","/","\\*","\\+"],
         "space_before"           : ["print","sleep","forward","turn","random"],
         "space_after"            : [],
         "constant": ["black", "blue", "brown", "gray", "green", "orange", "pink", "purple", "red", "white", "yellow"],
         "number"  : True,
         "number_with_decimal": False,
-        "extra_rules" : [ask_after_is,ask_after_equal]
+        "extra_rules" : [ask_after_is,ask_after_equal,multi_is]
     },
     7 :{
-        "space_before_and_after" : ["is","at","add","to_list","remove","from","in","if","else","repeat","times","color"],
+        "space_before_and_after" : ["at","add","to_list","remove","from","in","if","else","repeat","times","color"],
         "no_space"               : ["comma","-","=","/","\\*","\\+"],
         "space_before"           : ["print","sleep","forward","turn","random"],
         "space_after"            : [],
         "constant": ["black", "blue", "brown", "gray", "green", "orange", "pink", "purple", "red", "white", "yellow"],
         "number"  : True,
         "number_with_decimal": False,
-        "extra_rules" : [ask_after_is,ask_after_equal]
+        "extra_rules" : [ask_after_is,ask_after_equal,multi_is]
     },
     8 :{
-        "space_before_and_after" : ["is","at","add","to_list","remove","from","in","if","repeat","color"],
+        "space_before_and_after" : ["at","add","to_list","remove","from","in","if","repeat","color"],
         "no_space"               : ["comma","-","=","/","\\*","\\+"],
         "space_before"           : ["print","sleep","forward","turn","random","else","times"],
         "space_after"            : [],
         "constant": ["black", "blue", "brown", "gray", "green", "orange", "pink", "purple", "red", "white", "yellow"],
         "number"  : True,
         "number_with_decimal": False,
-        "extra_rules" : [ask_after_is,ask_after_equal]
+        "extra_rules" : [ask_after_is,ask_after_equal,multi_is]
     },
     9 :{
-        "space_before_and_after" : ["is","at","add","to_list","remove","from","in","if","repeat","color"],
+        "space_before_and_after" : ["at","add","to_list","remove","from","in","if","repeat","color"],
         "no_space"               : ["comma","-","=","/","\\*","\\+"],
         "space_before"           : ["print","sleep","forward","turn","random","else","times"],
         "space_after"            : [],
         "constant": ["black", "blue", "brown", "gray", "green", "orange", "pink", "purple", "red", "white", "yellow"],
         "number"  : True,
         "number_with_decimal": False,
-        "extra_rules" : [ask_after_is,ask_after_equal]
+        "extra_rules" : [ask_after_is,ask_after_equal,multi_is]
     },
     10 :{
-        "space_before_and_after" : ["is","at","add","to_list","remove","from","in","if","repeat","for","color"],
+        "space_before_and_after" : ["at","add","to_list","remove","from","in","if","repeat","for","color"],
         "no_space"               : ["comma","-","=","/","\\*","\\+"],
         "space_before"           : ["print","sleep","forward","turn","random","else","times"],
         "space_after"            : [],
         "constant": ["black", "blue", "brown", "gray", "green", "orange", "pink", "purple", "red", "white", "yellow"],
         "number"  : True,
         "number_with_decimal": False,
-        "extra_rules" : [ask_after_is,ask_after_equal]
+        "extra_rules" : [ask_after_is,ask_after_equal,multi_is]
     },
     11 :{
-        "space_before_and_after" : ["is","at","add","to_list","remove","from","in","if","for","range","to","repeat","color"],
+        "space_before_and_after" : ["at","add","to_list","remove","from","in","if","for","range","to","repeat","color"],
         "no_space"               : ["comma","-","=","/","\\*","\\+"],
         "space_before"           : ["print","sleep","forward","turn","random","else","times"],
         "space_after"            : [],
         "constant": ["black", "blue", "brown", "gray", "green", "orange", "pink", "purple", "red", "white", "yellow"],
         "number"  : True,
         "number_with_decimal": False,
-        "extra_rules" : [ask_after_is,ask_after_equal]
+        "extra_rules" : [ask_after_is,ask_after_equal,multi_is]
     },
     12 :{
         "space_before_and_after" : ["is","at","add","to_list","remove","from","in","if","for","range","to","repeat","color"],
