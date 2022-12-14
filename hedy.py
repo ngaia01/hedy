@@ -1620,7 +1620,6 @@ class ConvertToPython_3(ConvertToPython_2):
         else:
             return self.process_variable(arg, meta.line)
 
-
     def add(self, meta, args):
         value = self.process_argument(meta, args[0])
         list_var = args[1]
@@ -2176,7 +2175,7 @@ class ConvertToPython_14(ConvertToPython_13):
         # this at one point could be improved with a better type system, of course!
         # the issue is that we can't do everything in here because
         # kids submit things with the ask command that wew do not ask them to cast (yet)
-        
+
         simple_comparison = arg0 + " " + operator + " " + (arg1)
         if len(args) == 2:
             return simple_comparison  # no and statements
